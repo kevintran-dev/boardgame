@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+
+<h1>{{game.name}}</h1>
+{% if game.bgg_id %}
+<h6><a href="https://boardgamegeek.com/boardgame/{{data.gameId}}">Info pulled from Board Game Geek</a></h6>
+{% if data.image %}
+<div class="img-container">
+    <img src="{{data.image}}" alt="image of {{data.name}}" class="game-img" width="300" height="auto"></img>
+</div>
+{% endif %}
+<p>Board Game Geek ID: {{data.gameId}}</p>
+<p>Description: {{desc}}</p>
+<p>Published: {{data.yearPublished}}</p>
+<p>Publisher:
+    {% for pub in data.publishers %}
+    "{{pub}}"{{ "," if not loop.last }}
+    {% endfor %}
+</p>
+<p>Number of Players: {{data.maxPlayers}}</p>
+<p>Mechanics:
+    {% for mech in data.mechanics %}
+    {{mech}}{{ "," if not loop.last }}
+    {% endfor %}</p>
+<p>Board Game Geek Rating: {{data.bggRating}}</p>
+<p>Board Game Geek Average Users Rating: {{data.averageRating}}</p>
+<p>Board Game Geek Ranking: {{data.rank}}</p>
+{% else %}
+<h3>No Board Game Geek page found.</h3>
+
+{% endif %}
+
+
+{% endblock %}

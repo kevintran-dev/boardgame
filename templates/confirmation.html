@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+<h1 class="d-flex justify-content-center">Are you sure you want to delete your profile?</h1>
+<p class="d-flex justify-content-center">Click the button to do so.</p>
+<form action="/users/delete" method="POST" class="d-flex justify-content-center">
+    <button class="btn btn-danger">Yes I'm Sure!</button>
+</form>
+
+{% endblock %}
